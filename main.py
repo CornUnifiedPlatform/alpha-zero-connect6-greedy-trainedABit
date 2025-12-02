@@ -3,8 +3,10 @@ import logging
 import coloredlogs
 
 from Coach import Coach
-from othello.OthelloGame import OthelloGame as Game
-from othello.pytorch.NNet import NNetWrapper as nn
+# 引用你修改好的六子棋游戏逻辑
+from connect6.GobangGame import GobangGame as Game
+# 引用你刚才复制过去的通用神经网络
+from connect6.pytorch.NNet import NNetWrapper as nn
 from utils import *
 
 log = logging.getLogger(__name__)
@@ -31,7 +33,7 @@ args = dotdict({
 
 def main():
     log.info('Loading %s...', Game.__name__)
-    g = Game(6)
+    g = Game(19)
 
     log.info('Loading %s...', nn.__name__)
     nnet = nn(g)
