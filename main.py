@@ -39,15 +39,8 @@ def main():
     nnet = nn(g)
 
     if args.load_model:
-        log.info("Loading checkpoint (Weights Only)...")
-        # 只要这行还在，模型智商就在
+        log.info('Loading checkpoint "%s/%s"...', args.load_folder_file[0], args.load_folder_file[1])
         nnet.load_checkpoint(args.load_folder_file[0], args.load_folder_file[1])
-        
-        # ！！！把下面这两行注释掉！！！
-        # log.info("Loading 'trainExamples' from file...")
-        # c.loadTrainExamples() 
-        
-        print("⚠️ 已跳过历史棋谱加载，将基于现有模型智商开启新的训练。")
     else:
         log.warning('Not loading a checkpoint!')
 
